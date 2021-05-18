@@ -7,8 +7,8 @@
   /* ### Primary */
 
 --Bright-Blue: hsl(220, 98%, 61%);
---Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
-
+--BackgroundGradient: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+--transitions: all 300ms ease-in-out;
 /* ### Light Theme */
 
 --VeryLightGray: hsl(0, 0%, 98%);
@@ -32,17 +32,17 @@
 /* ##### DARK THEME ######## */
 /* ################# */
 .dark{
-  transition: all 500ms ease-in-out;
+  transition: var(--transitions);
   background-color: var(--DVeryDarkDesaturatedBlue);
   color: var(--DLightGrayishBlue);
 }
 .dark-body {
-  transition: all 500ms ease-in-out;
+  transition: var(--transitions);
   background-color: var(--DVeryDarkBlue);
   background-image: url(../images/bg-desktop-dark.jpg);
 }
 .dark-SVG{
-  transition: all 500ms ease-in-out;
+  transition: var(--transitions);
   cursor: pointer;
   background-image: url(../images/icon-sun.svg);
   width: 1.625rem;
@@ -51,7 +51,7 @@
   background-position: center center ;
 }
 .dark-circle{
-  transition: all 500ms ease-in-out;
+  transition: var(--transitions);
   border: 2px solid var(--DVeryDarkGrayishBlue2);
 }
 
@@ -59,17 +59,17 @@
 /* ##### LIGHT THEME ######## */
 /* ################# */
 .light{
-  transition: all 500ms ease-in-out;
+  transition: var(--transitions);
   background-color: var(--VeryLightGray);
   color: var(--VeryDarkGrayishBlue);
 }
 .light-body {
-  transition: all 500ms ease-in-out;
+  transition: var(--transitions);
   background-color: var(--VeryLightGray);
   background-image: url(../images/bg-desktop-light.jpg);
 }
 .light-SVG{
-  transition: all 500ms ease-in-out;
+  transition: var(--transitions);
   background-image: url(../images/icon-moon.svg);
   cursor: pointer;
   width: 1.625rem;
@@ -78,11 +78,11 @@
   background-position: center center ;
 }
 .light-circle{
-  transition: all 500ms ease-in-out;
+  transition: var(--transitions);
   border: 2px solid var(--VeryLightGrayishBlue);
 }
 .light-input{
-  transition: all 500ms ease-in-out;
+  transition: var(--transitions);
   color: var(--VeryDarkGrayishBlue);
   font-weight: 400;
 }
