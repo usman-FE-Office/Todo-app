@@ -2,36 +2,35 @@
 /* ##### VARIABLES ######## */
 /* ################# */
 
-
-:root{
+:root {
   /* ### Primary */
 
---Bright-Blue: hsl(220, 98%, 61%);
---BackgroundGradient: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
---transitions: all 300ms ease-in-out;
-/* ### Light Theme */
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --BackgroundGradient: linear-gradient hsl(192, 100%, 67%) to
+    hsl(280, 87%, 65%);
+  --transitions: all 300ms ease-in-out;
+  /* ### Light Theme */
 
---VeryLightGray: hsl(0, 0%, 98%);
---VeryLightGrayishBlue: hsl(236, 33%, 92%);
---LightGrayishBlue: hsl(233, 11%, 84%);
---DarkGrayishBlue: hsl(236, 9%, 61%);
---VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+  --VeryLightGray: hsl(0, 0%, 98%);
+  --VeryLightGrayishBlue: hsl(236, 33%, 92%);
+  --LightGrayishBlue: hsl(233, 11%, 84%);
+  --DarkGrayishBlue: hsl(236, 9%, 61%);
+  --VeryDarkGrayishBlue: hsl(235, 19%, 35%);
 
-/* ### Dark Theme */
+  /* ### Dark Theme */
 
---DVeryDarkBlue: hsl(235, 21%, 11%);
---DVeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
---DLightGrayishBlue: hsl(234, 39%, 85%);
---DLightGrayishBlueHover: hsl(236, 33%, 92%);
---DDarkGrayishBlue: hsl(234, 11%, 52%);
---DVeryDarkGrayishBlue: hsl(233, 14%, 35%);
---DVeryDarkGrayishBlue2: hsl(237, 14%, 26%);
-
+  --DVeryDarkBlue: hsl(235, 21%, 11%);
+  --DVeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --DLightGrayishBlue: hsl(234, 39%, 85%);
+  --DLightGrayishBlueHover: hsl(236, 33%, 92%);
+  --DDarkGrayishBlue: hsl(234, 11%, 52%);
+  --DVeryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --DVeryDarkGrayishBlue2: hsl(237, 14%, 26%);
 }
 /* ################# */
 /* ##### DARK THEME ######## */
 /* ################# */
-.dark{
+.dark {
   transition: var(--transitions);
   background-color: var(--DVeryDarkDesaturatedBlue);
   color: var(--DLightGrayishBlue);
@@ -41,24 +40,26 @@
   background-color: var(--DVeryDarkBlue);
   background-image: url(../images/bg-desktop-dark.jpg);
 }
-.dark-SVG{
+.dark-SVG {
   transition: var(--transitions);
   cursor: pointer;
   background-image: url(../images/icon-sun.svg);
   width: 1.625rem;
   height: 1.625rem;
   background-repeat: no-repeat;
-  background-position: center center ;
+  background-position: center center;
 }
-.dark-circle{
+.dark-circle {
   transition: var(--transitions);
   border: 2px solid var(--DVeryDarkGrayishBlue2);
 }
-
+.section-dark{
+  text-transform: capitalize;
+}
 /* ################# */
 /* ##### LIGHT THEME ######## */
 /* ################# */
-.light{
+.light {
   transition: var(--transitions);
   background-color: var(--VeryLightGray);
   color: var(--VeryDarkGrayishBlue);
@@ -68,23 +69,26 @@
   background-color: var(--VeryLightGray);
   background-image: url(../images/bg-desktop-light.jpg);
 }
-.light-SVG{
+.light-SVG {
   transition: var(--transitions);
   background-image: url(../images/icon-moon.svg);
   cursor: pointer;
   width: 1.625rem;
   height: 1.625rem;
   background-repeat: no-repeat;
-  background-position: center center ;
+  background-position: center center;
 }
-.light-circle{
+.light-circle {
   transition: var(--transitions);
   border: 2px solid var(--VeryLightGrayishBlue);
 }
-.light-input{
+.light-input {
   transition: var(--transitions);
   color: var(--VeryDarkGrayishBlue);
   font-weight: 400;
+}
+.section-light{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 /* ################# */
 /* ##### GLOBALS ######## */
@@ -103,7 +107,7 @@ body {
   background-size: cover;
   height: 18.875rem;
   font-family: "Josefin Sans", sans-serif;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
   padding: 0 0.625rem;
 }
@@ -144,7 +148,7 @@ body {
   width: 4.5rem;
   height: 4.0625rem;
   position: relative;
-  padding: 20px 23px;
+  padding: 1.25rem 1.4375rem;
 }
 .form-div .btn {
   background-color: transparent;
@@ -163,21 +167,36 @@ body {
 input:focus {
   outline: none;
 }
-::placeholder{
+::placeholder {
   color: var(--DDarkGrayishBlue);
   opacity: 1; /*Firefox*/
-
 }
 .task-input {
   font-family: "Josefin Sans", sans-serif;
+  font-size: 1.125rem;
   width: 100%;
   border: none;
   font-size: 1rem;
   background-color: rgba(0, 0, 0, 0);
 }
 
+/* ################# */
+/* ##### CONTENT SECTION ######## */
+/* ################# */
 
 
-/* ################# */
-/* ##### N/A ######## */
-/* ################# */
+section {
+  margin-top: 1.5625rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.task-item {
+  display: flex;
+  align-items: center;
+}
+
+.item-desc {
+  width: 100%;
+  padding: 1.25rem 1.4375rem 1.25rem 0;
+  text-align: left;
+}
