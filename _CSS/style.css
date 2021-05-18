@@ -3,17 +3,32 @@
   margin: 0;
   padding: 0;
 }
+.dark-body{
+    background-color: black;
+    background-image: url(../images/bg-desktop-dark.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 body {
-  background-image: url(../images/bg-desktop-dark.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: aliceblue;
-  height: 18.875rem;
-  background-color: black;
+    height: 18.875rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.125rem;
+    color: #FFFDFF;
+    font-weight: 400;
 }
 .container {
   max-width: 33.75rem;
   margin: auto;
   background-color: black;
+}
+.heading{
+    padding-top: 4.875rem;
+    padding-bottom: 3.125rem;
+}
+.heading h1{
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1rem;
 }
