@@ -9,10 +9,18 @@ const innerCircle = document.querySelectorAll(".inner-circle");
 const taskItem = document.querySelectorAll('.task-item');
 
 
+
+// INNER CIRCLE WORK
+innerCircle.forEach(function (inner) {
+  inner.addEventListener('click', function () {
+    inner.classList.toggle('inner-circle-grd');
+  });
+});
+
 // Added 'dark-btn' class dynamically
 for (let i = 0; i < taskItem.length; i++) {
   taskItem[i].classList.add('dark-btm');
-}
+};
 
 // TOGGLE EVENT HANDLER
 themeToggle.addEventListener("click", function () {

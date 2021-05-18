@@ -6,8 +6,11 @@
   /* ### Primary */
 
   --Bright-Blue: hsl(220, 98%, 61%);
-  --BackgroundGradient: linear-gradient hsl(192, 100%, 67%) to
-    hsl(280, 87%, 65%);
+  --BackgroundGradient: linear-gradient(
+    to bottom right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
   --transitions: all 300ms ease-in-out;
   /* ### Light Theme */
 
@@ -34,6 +37,9 @@
   transition: var(--transitions);
   background-color: var(--DVeryDarkDesaturatedBlue);
   color: var(--DLightGrayishBlue);
+}
+.dark a:hover {
+  color: var(--DLightGrayishBlueHover);
 }
 .dark-body {
   transition: var(--transitions);
@@ -96,6 +102,10 @@
   transition: var(--transitions);
   border-bottom: 1px solid var(--LightGrayishBlue);
 }
+.light a:hover {
+  transition: var(--transitions);
+  color: var(--DDarkGrayishBlue);
+}
 /* ################# */
 /* ##### GLOBALS ######## */
 /* ################# */
@@ -122,6 +132,11 @@ body {
   margin: auto;
 }
 
+.active-filter {
+  transition: var(--transitions);
+  color: var(--Bright-Blue);
+}
+
 /* ################# */
 /* ##### HEADER ######## */
 /* ################# */
@@ -129,7 +144,6 @@ body {
 .heading {
   padding-top: 4.875rem;
   padding-bottom: 3.125rem;
-
   display: flex;
   justify-content: space-between;
 }
@@ -164,11 +178,19 @@ body {
   cursor: pointer;
 }
 .inner-circle {
+  cursor: pointer;
   position: absolute;
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background-color: transparent;
+}
+.inner-circle-grd {
+  transition: var(--transitions);
+  background-image: var(--BackgroundGradient);
+  border: none;
+}
+.inner-circle:hover {
+  border-color: var(--BackgroundGradient);
 }
 input:focus {
   outline: none;
@@ -199,11 +221,11 @@ section {
   display: flex;
   align-items: center;
 }
-
 .item-desc {
   width: 100%;
   padding: 1.25rem 1.4375rem 1.25rem 0;
   text-align: left;
+  cursor: pointer;
 }
 
 /* ################# */
@@ -213,7 +235,7 @@ section {
 .footer-links {
   display: flex;
   justify-content: space-between;
-  font-size: 12.5px;
+  font-size: 0.8125rem;
 }
 .footer-links a {
   text-decoration: none;
