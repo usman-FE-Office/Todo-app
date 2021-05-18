@@ -4,7 +4,7 @@
   padding: 0;
 }
 .dark-body {
-  background-color: black;
+  background-color: #181824;
   background-image: url(../images/bg-desktop-dark.jpg);
   color: #fffdff;
 }
@@ -16,6 +16,7 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
+  padding: 0 0.625rem;
 }
 .container {
   max-width: 33.75rem;
@@ -24,6 +25,9 @@ body {
 .heading {
   padding-top: 4.875rem;
   padding-bottom: 3.125rem;
+
+  display: flex;
+  justify-content: space-between;
 }
 .heading h1 {
   text-transform: uppercase;
