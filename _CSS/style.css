@@ -131,7 +131,11 @@ body {
   max-width: 33.75rem;
   margin: auto;
 }
-
+.checked-Item {
+  transition: var(--transitions);
+  text-decoration: line-through;
+  color: var(--DDarkGrayishBlue);
+}
 .active-filter {
   transition: var(--transitions);
   color: var(--Bright-Blue);
@@ -188,6 +192,7 @@ body {
   transition: var(--transitions);
   background-image: var(--BackgroundGradient);
   border: none;
+  padding: 0.2813rem 0.4375rem;
 }
 .inner-circle:hover {
   border-color: var(--BackgroundGradient);
@@ -198,6 +203,9 @@ input:focus {
 ::placeholder {
   color: var(--DDarkGrayishBlue);
   opacity: 1; /*Firefox*/
+}
+.check {
+  transition: none;
 }
 .task-input {
   font-family: "Josefin Sans", sans-serif;

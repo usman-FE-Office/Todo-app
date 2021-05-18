@@ -7,13 +7,25 @@ const taskInput = document.querySelector("#task-input");
 const mainSection = document.querySelector("#main-section");
 const innerCircle = document.querySelectorAll(".inner-circle");
 const taskItem = document.querySelectorAll('.task-item');
+const onlyItemCircle = document.querySelectorAll('.item-circle')
 
+
+// Create Check Element
+const check = document.createElement("img");
+check.src = '../images/icon-check.svg';
+check.classList.add('check');
 
 
 // INNER CIRCLE WORK
-innerCircle.forEach(function (inner) {
+onlyItemCircle.forEach(function (inner) {
   inner.addEventListener('click', function () {
     inner.classList.toggle('inner-circle-grd');
+    if (!inner.contains(check)) {
+      inner.appendChild(check);
+    } else {
+      check.remove();
+    }
+    inner.parentElement.parentElement.children[1].classList.toggle('checked-Item');
   });
 });
 
