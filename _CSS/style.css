@@ -53,8 +53,9 @@
   transition: var(--transitions);
   border: 2px solid var(--DVeryDarkGrayishBlue2);
 }
-.section-dark{
-  text-transform: capitalize;
+.dark-btm {
+  transition: var(--transitions);
+  border-bottom: 1px solid var(--DVeryDarkGrayishBlue2);
 }
 /* ################# */
 /* ##### LIGHT THEME ######## */
@@ -87,8 +88,13 @@
   color: var(--VeryDarkGrayishBlue);
   font-weight: 400;
 }
-.section-light{
+.section-light {
+  transition: var(--transitions);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.light-btm {
+  transition: var(--transitions);
+  border-bottom: 1px solid var(--LightGrayishBlue);
 }
 /* ################# */
 /* ##### GLOBALS ######## */
@@ -184,7 +190,6 @@ input:focus {
 /* ##### CONTENT SECTION ######## */
 /* ################# */
 
-
 section {
   margin-top: 1.5625rem;
   border-radius: 5px;
@@ -199,4 +204,29 @@ section {
   width: 100%;
   padding: 1.25rem 1.4375rem 1.25rem 0;
   text-align: left;
+}
+
+/* ################# */
+/* ##### FOOTER LINKS ######## */
+/* ################# */
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+.footer-links a {
+  text-decoration: none;
+  color: inherit;
+}
+.builtin-filters {
+  font-weight: 700;
+}
+.filter-btn:not(:last-child) {
+  margin-right: 1.25rem;
+}
+.items-left,
+.builtin-filters,
+.clear-div {
+  padding: 1.25rem 1.5625rem;
 }
