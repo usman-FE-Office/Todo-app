@@ -35,7 +35,24 @@
   background-color: var(--DVeryDarkDesaturatedBlue);
   color: var(--DLightGrayishBlue);
 }
+.dark-body {
+  background-color: var(--DVeryDarkBlue);
+  background-image: url(../images/bg-desktop-dark.jpg);
+  color: var(--VeryLightGray);
+}
 
+/* ################# */
+/* ##### LIGHT THEME ######## */
+/* ################# */
+.light{
+  background-color: var(--VeryLightGray);
+  color: var(--VeryDarkGrayishBlue);
+}
+.light-body {
+  background-color: var(--DVeryDarkBlue);
+  background-image: url(../images/bg-desktop-dark.jpg);
+  color: var(--VeryLightGray);
+}
 /* ################# */
 /* ##### GLOBALS ######## */
 /* ################# */
@@ -45,11 +62,7 @@
   margin: 0;
   padding: 0;
 }
-.dark-body {
-  background-color: var(--DVeryDarkBlue);
-  background-image: url(../images/bg-desktop-dark.jpg);
-  color: var(--VeryLightGray);
-}
+
 body {
   background-position: center center;
   background-repeat: no-repeat;
