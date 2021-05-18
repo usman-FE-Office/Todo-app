@@ -32,26 +32,59 @@
 /* ##### DARK THEME ######## */
 /* ################# */
 .dark{
+  transition: all 500ms ease-in-out;
   background-color: var(--DVeryDarkDesaturatedBlue);
   color: var(--DLightGrayishBlue);
 }
 .dark-body {
+  transition: all 500ms ease-in-out;
   background-color: var(--DVeryDarkBlue);
   background-image: url(../images/bg-desktop-dark.jpg);
-  color: var(--VeryLightGray);
+}
+.dark-SVG{
+  transition: all 500ms ease-in-out;
+  cursor: pointer;
+  background-image: url(../images/icon-sun.svg);
+  width: 1.625rem;
+  height: 1.625rem;
+  background-repeat: no-repeat;
+  background-position: center center ;
+}
+.dark-circle{
+  transition: all 500ms ease-in-out;
+  border: 2px solid var(--DVeryDarkGrayishBlue2);
 }
 
 /* ################# */
 /* ##### LIGHT THEME ######## */
 /* ################# */
 .light{
+  transition: all 500ms ease-in-out;
   background-color: var(--VeryLightGray);
   color: var(--VeryDarkGrayishBlue);
 }
 .light-body {
-  background-color: var(--DVeryDarkBlue);
-  background-image: url(../images/bg-desktop-dark.jpg);
-  color: var(--VeryLightGray);
+  transition: all 500ms ease-in-out;
+  background-color: var(--VeryLightGray);
+  background-image: url(../images/bg-desktop-light.jpg);
+}
+.light-SVG{
+  transition: all 500ms ease-in-out;
+  background-image: url(../images/icon-moon.svg);
+  cursor: pointer;
+  width: 1.625rem;
+  height: 1.625rem;
+  background-repeat: no-repeat;
+  background-position: center center ;
+}
+.light-circle{
+  transition: all 500ms ease-in-out;
+  border: 2px solid var(--VeryLightGrayishBlue);
+}
+.light-input{
+  transition: all 500ms ease-in-out;
+  color: var(--VeryDarkGrayishBlue);
+  font-weight: 400;
 }
 /* ################# */
 /* ##### GLOBALS ######## */
@@ -64,6 +97,7 @@
 }
 
 body {
+  color: var(--VeryLightGray);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -124,7 +158,6 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  border: 2px solid #303247;
   background-color: transparent;
 }
 input:focus {
@@ -142,6 +175,7 @@ input:focus {
   font-size: 1rem;
   background-color: rgba(0, 0, 0, 0);
 }
+
 
 
 /* ################# */
