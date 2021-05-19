@@ -192,11 +192,23 @@ body {
   transition: var(--transitions);
   background-image: var(--BackgroundGradient);
   border: none;
-  padding: 0.2813rem 0.4375rem;
+  padding: 0.2813rem 0 .4375rem;
 }
-.inner-circle:hover {
-  border-color: var(--BackgroundGradient);
+
+.inner-circle-grd::before{
+  content: url(../images/icon-check.svg);
+  text-align: center;
+  padding: 5px;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
 }
+
 input:focus {
   outline: none;
 }
@@ -204,9 +216,7 @@ input:focus {
   color: var(--DDarkGrayishBlue);
   opacity: 1; /*Firefox*/
 }
-.check {
-  transition: none;
-}
+
 .task-input {
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.125rem;
