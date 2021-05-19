@@ -11,7 +11,7 @@
     hsl(192, 100%, 67%),
     hsl(280, 87%, 65%)
   );
-  --transitions: all 300ms ease-in-out;
+  --transitions: all 200ms ease-in-out;
   /* ### Light Theme */
 
   --VeryLightGray: hsl(0, 0%, 98%);
@@ -244,6 +244,23 @@ section {
   padding: 1.25rem 1.4375rem 1.25rem 0;
   text-align: left;
   cursor: pointer;
+  position: relative;
+}
+.item-desc::after{
+  content: url(../images/icon-cross.svg);
+  display: block;
+  position: absolute;
+  text-align: right;
+  right: 1.5625rem;
+  top: 1.125rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: var(--transitions);
+}
+
+.task-item:hover .item-desc::after{
+  opacity: 1;
+  visibility: visible;
 }
 
 /* ################# */
@@ -271,3 +288,8 @@ section {
 .clear-div {
   padding: 1.25rem 1.5625rem;
 }
+
+
+
+
+
