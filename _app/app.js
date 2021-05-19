@@ -40,7 +40,6 @@ function createTaskElement() {
     spanEl.parentElement.parentElement.children[1].classList.toggle(
       "checked-Item"
     );
-
   });
 }
 
