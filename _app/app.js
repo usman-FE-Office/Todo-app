@@ -6,9 +6,10 @@ const formDiv = document.querySelector("#form-div");
 const taskInput = document.querySelector("#task-input");
 const mainSection = document.querySelector("#main-section");
 const innerCircle = document.querySelectorAll(".inner-circle");
+const inputCircle = document.querySelector('.inner-circle-input');
 const taskItem = document.querySelectorAll(".task-item");
-const onlyItemCircle = document.querySelectorAll(".item-circle");
 const taskUl = document.querySelector("#task-ul");
+const taskArr = [];
 
 // TASK INPUT EVENT HANDLER
 formDiv.addEventListener("submit", function (e) {
@@ -20,19 +21,29 @@ formDiv.addEventListener("submit", function (e) {
 // CREATE TASK ITEM ELEMENT FUNCTION
 function createTaskElement() {
   const li = document.createElement("li");
-  li.classList.add("task-item", "dark-btm");
+  li.classList.add("task-item");
+
+  mainBody.className.includes("dark-body")
+    ? li.classList.add("dark-btm")
+    : li.classList.add("light-btm");
+
   taskUl.appendChild(li);
   const divbtn = document.createElement("div");
   divbtn.classList.add("btn-block");
   li.appendChild(divbtn);
   const spanEl = document.createElement("span");
-  spanEl.classList.add("inner-circle", "dark-circle", "item-circle");
+  spanEl.classList.add("inner-circle", "item-circle");
+
+  mainBody.className.includes("dark-body")
+    ? spanEl.classList.add("dark-circle")
+    : spanEl.classList.add("light-circle");
+
   divbtn.appendChild(spanEl);
   const divDesc = document.createElement("div");
   divDesc.classList.add("item-desc");
   li.appendChild(divDesc);
   divDesc.textContent = taskInput.value;
-  
+  taskArr.push(li);
 
   // INNER CIRCLE FUNCTION
   spanEl.addEventListener("click", function () {
@@ -56,13 +67,24 @@ themeToggle.addEventListener("click", function () {
   mainSection.classList.toggle("light");
   mainSection.classList.toggle("section-dark");
   mainSection.classList.toggle("section-light");
+  inputCircle.classList.toggle("light-circle");
+  inputCircle.classList.toggle("dark-circle");
 
-  innerCircle.forEach(function (circle) {
-    circle.classList.toggle("dark-circle");
-    circle.classList.toggle("light-circle");
-  });
-  taskItem.forEach(function (item) {
-    item.classList.toggle("light-btm");
-    item.classList.toggle("dark-btm");
-  });
+
+  for (let i = 0; i < taskArr.length; i++) {
+    if (
+      taskArr[i].className.includes("dark-btm") &&
+      mainBody.className.includes("dark-body")
+    ) {
+      taskArr[i].classList.toggle("light-btm");
+      taskArr[i].classList.toggle("dark-btm");
+      taskArr[i].children[0].children[0].classList.toggle("light-circle");
+      taskArr[i].children[0].children[0].classList.toggle("dark-circle");
+    } else {
+      taskArr[i].classList.toggle("light-btm");
+      taskArr[i].classList.toggle("dark-btm");
+      taskArr[i].children[0].children[0].classList.toggle("light-circle");
+      taskArr[i].children[0].children[0].classList.toggle("dark-circle");
+    }
+  }
 });
