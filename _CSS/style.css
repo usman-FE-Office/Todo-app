@@ -283,10 +283,14 @@ section {
 .filter-btn:not(:last-child) {
   margin-right: 1.25rem;
 }
-.items-left,
+.items-left-div,
 .builtin-filters,
 .clear-div {
   padding: 1.25rem 1.5625rem;
+}
+.selected{
+  transition: var(--transitions);
+  color: var(--Bright-Blue);
 }
 
 

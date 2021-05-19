@@ -11,9 +11,12 @@ const taskItem = document.querySelectorAll(".task-item");
 const taskUl = document.querySelector("#task-ul");
 const itemDesc = document.querySelector(".item-desc");
 const clearBtn = document.querySelector(".clear-btn");
+const active = document.querySelector(".active");
+const completed = document.querySelector(".completed");
+const all = document.querySelector(".all");
+const itemsLeft = document.querySelector(".items-left");
 let cross;
 const taskArr = [];
-
 // TASK INPUT EVENT HANDLER
 formDiv.addEventListener("submit", function (e) {
   createTaskElement();
@@ -55,15 +58,6 @@ function createTaskElement() {
   contentItem.textContent = taskInput.value;
   taskArr.push(li);
 
-  // Clear Completed Function
-
-  clearBtn.addEventListener("click", function () {
-    for (let i = 0; i < taskArr.length; i++) {
-      if (taskArr[i].children[1].className.includes("checked-Item")) {
-        taskArr[i].remove();
-      }
-    }
-  });
   // INNER CIRCLE FUNCTION
   spanEl.addEventListener("click", function () {
     spanEl.classList.toggle("inner-circle-grd");
@@ -74,6 +68,8 @@ function createTaskElement() {
   // CROSS EVENT HANDLER
 
   cross.addEventListener("click", function (e) {
+    let ind = taskArr.indexOf(e.target.parentElement.parentElement);
+    taskArr.splice(ind, 1);
     e.target.parentElement.parentElement.remove();
   });
 }
@@ -110,4 +106,53 @@ themeToggle.addEventListener("click", function () {
       taskArr[i].children[0].children[0].classList.toggle("dark-circle");
     }
   }
+});
+
+// Clear Completed Function
+
+clearBtn.addEventListener("click", function () {
+  for (let i = 0; i < taskArr.length; i++) {
+    if (taskArr[i].children[1].className.includes("checked-Item")) {
+      taskArr[i].remove();
+    }
+  }
+});
+
+// FILTER Functions
+
+active.addEventListener("click", function () {
+  for (let i = 0; i < taskArr.length; i++) {
+    if (taskArr[i].children[1].className.includes("checked-Item")) {
+      taskArr[i].style.display = "none";
+    } else {
+      taskArr[i].style.display = "flex";
+    }
+  }
+});
+
+completed.addEventListener("click", function () {
+  for (let i = 0; i < taskArr.length; i++) {
+    if (!taskArr[i].children[1].className.includes("checked-Item")) {
+      taskArr[i].style.display = "none";
+    } else {
+      taskArr[i].style.display = "flex";
+    }
+  }
+});
+
+all.addEventListener("click", function () {
+  for (let i = 0; i < taskArr.length; i++) {
+    taskArr[i].style.display = "flex";
+  }
+});
+
+formDiv.addEventListener("submit", function () {
+  const activeArr = [];
+  for (let i = 0; i < taskArr.length; i++) {
+    if (!taskArr[i].children[1].className.includes("checked-Item")) {
+      activeArr.push(taskArr[i]);
+    }
+  }
+  itemsLeft.textContent = `${activeArr.length} items left`;
+  
 });
