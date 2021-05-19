@@ -70,6 +70,7 @@
   transition: var(--transitions);
   background-color: var(--VeryLightGray);
   color: var(--VeryDarkGrayishBlue);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .light-body {
   transition: var(--transitions);
@@ -125,7 +126,7 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  padding: 0 0.625rem;
+  padding: 0 1.5625rem;
 }
 .container {
   max-width: 33.75rem;
@@ -198,7 +199,7 @@ body {
 .inner-circle-grd::before {
   content: url(../images/icon-check.svg);
   text-align: center;
-  padding: 5px;
+  padding: 0.3125rem;
   display: block;
   position: absolute;
   z-index: 1;
@@ -274,8 +275,12 @@ section {
   flex-wrap: wrap;
 }
 .footer-links a {
+  transition: var(--transitions);
   text-decoration: none;
-  color: inherit;
+  color: var(--DVeryDarkGrayishBlue);
+}
+.mobile-filters {
+  display: none;
 }
 .builtin-filters {
   font-weight: 700;
@@ -291,4 +296,64 @@ section {
 .selected {
   transition: var(--transitions);
   color: var(--Bright-Blue);
+}
+
+/* ################# */
+/* ##### MEDIA QUERIES ######## */
+/* ################# */
+
+@media screen and (max-width: 33.5em) {
+  body,
+  .footer-links {
+    font-size: 0.8125rem;
+  }
+  .inner-circle-grd::before {
+    padding: 0.4375rem;
+  }
+  .dark-body {
+    background-image: url(../images/bg-mobile-dark.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 12.5rem;
+  }
+  .light-body {
+    background-image: url(../images/bg-mobile-light.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 12.5rem;
+  }
+  .heading h1 {
+    font-size: 1.375rem;
+  }
+  #theme-toggle {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+  .builtin-filters {
+    display: none;
+  }
+  .mobile-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    bottom: 7px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+  .mobile-filters a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--DDarkGrayishBlue);
+  }
+  .cross {
+    visibility: visible;
+    opacity: 1;
+  }
 }
