@@ -6,9 +6,12 @@ const formDiv = document.querySelector("#form-div");
 const taskInput = document.querySelector("#task-input");
 const mainSection = document.querySelector("#main-section");
 const innerCircle = document.querySelectorAll(".inner-circle");
-const inputCircle = document.querySelector('.inner-circle-input');
+const inputCircle = document.querySelector(".inner-circle-input");
 const taskItem = document.querySelectorAll(".task-item");
 const taskUl = document.querySelector("#task-ul");
+const itemDesc = document.querySelector(".item-desc");
+const clearBtn = document.querySelector(".clear-btn");
+let cross;
 const taskArr = [];
 
 // TASK INPUT EVENT HANDLER
@@ -42,15 +45,36 @@ function createTaskElement() {
   const divDesc = document.createElement("div");
   divDesc.classList.add("item-desc");
   li.appendChild(divDesc);
-  divDesc.textContent = taskInput.value;
+  cross = document.createElement("span");
+  cross.classList.add("cross");
+  divDesc.appendChild(cross);
+
+  const contentItem = document.createElement("p");
+  divDesc.appendChild(contentItem);
+
+  contentItem.textContent = taskInput.value;
   taskArr.push(li);
 
+  // Clear Completed Function
+
+  clearBtn.addEventListener("click", function () {
+    for (let i = 0; i < taskArr.length; i++) {
+      if (taskArr[i].children[1].className.includes("checked-Item")) {
+        taskArr[i].remove();
+      }
+    }
+  });
   // INNER CIRCLE FUNCTION
   spanEl.addEventListener("click", function () {
     spanEl.classList.toggle("inner-circle-grd");
     spanEl.parentElement.parentElement.children[1].classList.toggle(
       "checked-Item"
     );
+  });
+  // CROSS EVENT HANDLER
+
+  cross.addEventListener("click", function (e) {
+    e.target.parentElement.parentElement.remove();
   });
 }
 
@@ -69,7 +93,6 @@ themeToggle.addEventListener("click", function () {
   mainSection.classList.toggle("section-light");
   inputCircle.classList.toggle("light-circle");
   inputCircle.classList.toggle("dark-circle");
-
 
   for (let i = 0; i < taskArr.length; i++) {
     if (

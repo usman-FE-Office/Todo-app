@@ -246,7 +246,7 @@ section {
   cursor: pointer;
   position: relative;
 }
-.item-desc::after{
+.cross{
   content: url(../images/icon-cross.svg);
   display: block;
   position: absolute;
@@ -258,7 +258,7 @@ section {
   transition: var(--transitions);
 }
 
-.task-item:hover .item-desc::after{
+.task-item:hover .cross{
   opacity: 1;
   visibility: visible;
 }
