@@ -192,10 +192,10 @@ body {
   transition: var(--transitions);
   background-image: var(--BackgroundGradient);
   border: none;
-  padding: 0.2813rem 0 .4375rem;
+  padding: 0.2813rem 0 0.4375rem;
 }
 
-.inner-circle-grd::before{
+.inner-circle-grd::before {
   content: url(../images/icon-check.svg);
   text-align: center;
   padding: 5px;
@@ -206,7 +206,6 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-
 }
 
 input:focus {
@@ -246,7 +245,7 @@ section {
   cursor: pointer;
   position: relative;
 }
-.cross{
+.cross {
   content: url(../images/icon-cross.svg);
   display: block;
   position: absolute;
@@ -258,7 +257,7 @@ section {
   transition: var(--transitions);
 }
 
-.task-item:hover .cross{
+.task-item:hover .cross {
   opacity: 1;
   visibility: visible;
 }
@@ -272,6 +271,7 @@ section {
   justify-content: space-between;
   font-size: 0.8125rem;
   white-space: nowrap;
+  flex-wrap: wrap;
 }
 .footer-links a {
   text-decoration: none;
@@ -288,12 +288,7 @@ section {
 .clear-div {
   padding: 1.25rem 1.5625rem;
 }
-.selected{
+.selected {
   transition: var(--transitions);
   color: var(--Bright-Blue);
 }
-
-
-
-
-

@@ -153,6 +153,30 @@ formDiv.addEventListener("submit", function () {
       activeArr.push(taskArr[i]);
     }
   }
-  itemsLeft.textContent = `${activeArr.length} items left`;
-  
+
+});
+
+
+document.addEventListener('mousedown', function () {
+  let sum = 0;
+  for (let i = 0; i < taskArr.length; i++) {
+
+    if (taskArr[i].children[1].className.includes('checked-Item')) continue;
+    else sum++;
+
+  }
+  itemsLeft.textContent = `${sum} items left`;
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    let sum = 0;
+    for (let i = 0; i < taskArr.length; i++) {
+
+      if (taskArr[i].children[1].className.includes('checked-Item')) continue;
+      else sum++;
+
+    }
+    itemsLeft.textContent = `${sum} items left`;
+  }
+
 });
