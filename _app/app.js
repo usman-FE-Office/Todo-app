@@ -7,7 +7,37 @@ const taskInput = document.querySelector("#task-input");
 const mainSection = document.querySelector("#main-section");
 const innerCircle = document.querySelectorAll(".inner-circle");
 const taskItem = document.querySelectorAll('.task-item');
-const onlyItemCircle = document.querySelectorAll('.item-circle')
+const onlyItemCircle = document.querySelectorAll('.item-circle');
+const taskUl = document.querySelector('#task-ul');
+
+
+
+
+// TASK INPUT EVENT HANDLER
+formDiv.addEventListener('submit', function(e){
+  console.log(taskInput.value);
+  createTaskElement();
+  e.preventDefault();
+})
+
+// CREATE TASK ITEM ELEMENT FUNCTION
+function createTaskElement() {
+  const li = document.createElement('li');
+  li.classList.add('task-item');
+  taskUl.appendChild(li);
+  const divbtn = document.createElement('div');
+  divbtn.classList.add('btn-block');
+  li.appendChild(divbtn);
+  const spanEl = document.createElement('span');
+  spanEl.classList.add('inner-circle', 'dark-circle', 'item-circle');
+  divbtn.appendChild(spanEl);
+  const divDesc = document.createElement('div');
+  divDesc.classList.add('item-desc');
+  li.appendChild(divDesc);
+  divDesc.textContent = taskInput.value;
+
+}
+
 
 
 // INNER CIRCLE WORK

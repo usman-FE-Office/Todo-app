@@ -254,6 +254,7 @@ section {
   display: flex;
   justify-content: space-between;
   font-size: 0.8125rem;
+  white-space: nowrap;
 }
 .footer-links a {
   text-decoration: none;
