@@ -14,8 +14,11 @@ const clearBtn = document.querySelector(".clear-btn");
 const active = document.querySelector(".active");
 const completed = document.querySelector(".completed");
 const all = document.querySelector(".all");
+const activeM = document.querySelector(".active-m");
+const completedM = document.querySelector(".completed-m");
+const allM = document.querySelector(".all-m");
 const itemsLeft = document.querySelector(".items-left");
-let cross;
+const mobileLinks = document.querySelector('.mobile-filters');
 const taskArr = [];
 // TASK INPUT EVENT HANDLER
 formDiv.addEventListener("submit", function (e) {
@@ -82,6 +85,8 @@ themeToggle.addEventListener("click", function () {
   themeToggle.classList.toggle("dark-SVG");
   formDiv.classList.toggle("dark");
   formDiv.classList.toggle("light");
+  mobileLinks.classList.toggle("dark");
+  mobileLinks.classList.toggle("light");
   taskInput.classList.toggle("light-input");
   mainSection.classList.toggle("dark");
   mainSection.classList.toggle("light");
@@ -141,6 +146,34 @@ completed.addEventListener("click", function () {
 });
 
 all.addEventListener("click", function () {
+  for (let i = 0; i < taskArr.length; i++) {
+    taskArr[i].style.display = "flex";
+  }
+});
+
+// FILTER Functions for mobile
+
+activeM.addEventListener("click", function () {
+  for (let i = 0; i < taskArr.length; i++) {
+    if (taskArr[i].children[1].className.includes("checked-Item")) {
+      taskArr[i].style.display = "none";
+    } else {
+      taskArr[i].style.display = "flex";
+    }
+  }
+});
+
+completedM.addEventListener("click", function () {
+  for (let i = 0; i < taskArr.length; i++) {
+    if (!taskArr[i].children[1].className.includes("checked-Item")) {
+      taskArr[i].style.display = "none";
+    } else {
+      taskArr[i].style.display = "flex";
+    }
+  }
+});
+
+allM.addEventListener("click", function () {
   for (let i = 0; i < taskArr.length; i++) {
     taskArr[i].style.display = "flex";
   }
