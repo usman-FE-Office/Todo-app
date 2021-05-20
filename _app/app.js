@@ -18,14 +18,12 @@ const activeM = document.querySelector(".active-m");
 const completedM = document.querySelector(".completed-m");
 const allM = document.querySelector(".all-m");
 const itemsLeft = document.querySelector(".items-left");
-const mobileLinks = document.querySelector('.mobile-filters');
+const mobileLinks = document.querySelector(".mobile-filters");
 let li;
 const taskArr = [];
 
-
 // TASK INPUT EVENT HANDLER
 formDiv.addEventListener("submit", function (e) {
-
   createTaskElement(taskInput.value);
   counterItem();
   taskInput.value = "";
@@ -82,17 +80,14 @@ function createTaskElement(value) {
     counterItem();
     e.target.parentElement.parentElement.remove();
   });
-  
 }
 
 // Item Left Counter
 function counterItem() {
   let sum = 0;
   for (let i = 0; i < taskArr.length; i++) {
-
-    if (taskArr[i].children[1].className.includes('checked-Item')) continue;
+    if (taskArr[i].children[1].className.includes("checked-Item")) continue;
     else sum++;
-
   }
   itemsLeft.textContent = `${sum} items left`;
 }
@@ -139,9 +134,13 @@ clearBtn.addEventListener("click", function () {
   for (let i = 0; i < taskArr.length; i++) {
     if (taskArr[i].children[1].className.includes("checked-Item")) {
       taskArr[i].remove();
-      taskArr.splice(i,1);
     }
   }
+
+  const filtered = taskArr.filter(
+    (single) => !single.children[1].className.includes("checked-Item")
+  );
+  taskArr.splice(0, taskArr.length, ...filtered);
 });
 
 // FILTER Functions
@@ -207,5 +206,4 @@ formDiv.addEventListener("submit", function () {
       activeArr.push(taskArr[i]);
     }
   }
-
 });
