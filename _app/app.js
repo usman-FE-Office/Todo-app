@@ -19,17 +19,22 @@ const completedM = document.querySelector(".completed-m");
 const allM = document.querySelector(".all-m");
 const itemsLeft = document.querySelector(".items-left");
 const mobileLinks = document.querySelector('.mobile-filters');
+let li;
 const taskArr = [];
+
+
 // TASK INPUT EVENT HANDLER
 formDiv.addEventListener("submit", function (e) {
-  createTaskElement();
+
+  createTaskElement(taskInput.value);
+  counterItem();
   taskInput.value = "";
   e.preventDefault();
 });
 
 // CREATE TASK ITEM ELEMENT FUNCTION
-function createTaskElement() {
-  const li = document.createElement("li");
+function createTaskElement(value) {
+  li = document.createElement("li");
   li.classList.add("task-item");
 
   mainBody.className.includes("dark-body")
@@ -58,7 +63,7 @@ function createTaskElement() {
   const contentItem = document.createElement("p");
   divDesc.appendChild(contentItem);
 
-  contentItem.textContent = taskInput.value;
+  contentItem.textContent = value;
   taskArr.push(li);
 
   // INNER CIRCLE FUNCTION
@@ -67,14 +72,29 @@ function createTaskElement() {
     spanEl.parentElement.parentElement.children[1].classList.toggle(
       "checked-Item"
     );
+    counterItem();
   });
   // CROSS EVENT HANDLER
 
   cross.addEventListener("click", function (e) {
     let ind = taskArr.indexOf(e.target.parentElement.parentElement);
     taskArr.splice(ind, 1);
+    counterItem();
     e.target.parentElement.parentElement.remove();
   });
+  
+}
+
+// Item Left Counter
+function counterItem() {
+  let sum = 0;
+  for (let i = 0; i < taskArr.length; i++) {
+
+    if (taskArr[i].children[1].className.includes('checked-Item')) continue;
+    else sum++;
+
+  }
+  itemsLeft.textContent = `${sum} items left`;
 }
 
 // TOGGLE EVENT HANDLER
@@ -119,6 +139,7 @@ clearBtn.addEventListener("click", function () {
   for (let i = 0; i < taskArr.length; i++) {
     if (taskArr[i].children[1].className.includes("checked-Item")) {
       taskArr[i].remove();
+      taskArr.splice(i,1);
     }
   }
 });
@@ -185,29 +206,6 @@ formDiv.addEventListener("submit", function () {
     if (!taskArr[i].children[1].className.includes("checked-Item")) {
       activeArr.push(taskArr[i]);
     }
-  }
-
-});
-
-
-document.addEventListener('mousedown', function () {
-  let sum = 0;
-  for (let i = 0; i < taskArr.length; i++) {
-
-    if (taskArr[i].children[1].className.includes('checked-Item')) continue;
-    else sum++;
-
-  }
-  itemsLeft.textContent = `${sum} items left`;
-});
-document.addEventListener('keydown', function (e) {
-  let sum = 0;
-  for (let i = 0; i < taskArr.length; i++) {
-
-    if (taskArr[i].children[1].className.includes('checked-Item')) continue;
-    else sum++;
-
-    itemsLeft.textContent = `${sum} items left`;
   }
 
 });

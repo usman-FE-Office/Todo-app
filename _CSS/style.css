@@ -297,7 +297,9 @@ section {
   transition: var(--transitions);
   color: var(--Bright-Blue);
 }
-
+.items.left{
+  transition: var(--transitions);
+}
 /* ################# */
 /* ##### MEDIA QUERIES ######## */
 /* ################# */
