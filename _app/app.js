@@ -21,13 +21,37 @@ const itemsLeft = document.querySelector(".items-left");
 const mobileLinks = document.querySelector(".mobile-filters");
 let li;
 const taskArr = [];
+let keys = [];
 
 // TASK INPUT EVENT HANDLER
 formDiv.addEventListener("submit", function (e) {
   createTaskElement(taskInput.value);
   counterItem();
   taskInput.value = "";
+  keyMaker();
+  localStorage.setItem("keys", JSON.stringify(keys));
   e.preventDefault();
+});
+
+// KEYMAKER FOR LOCAL STORAGE
+
+function keyMaker() {
+  keys = [];
+  taskArr.forEach(function (task) {
+    keys.push(task.children[1].textContent);
+  });
+  return keys;
+}
+
+//Get FROM LOCAL STORAGE
+window.addEventListener("DOMContentLoaded", function () {
+  const keys = JSON.parse(localStorage.getItem("keys"));
+  if(keys){
+  for (const key of keys) {
+    if(key) createTaskElement(key);
+  }
+  }
+  counterItem();
 });
 
 // CREATE TASK ITEM ELEMENT FUNCTION
@@ -79,6 +103,8 @@ function createTaskElement(value) {
     taskArr.splice(ind, 1);
     counterItem();
     e.target.parentElement.parentElement.remove();
+    keyMaker();
+    localStorage.setItem("keys", JSON.stringify(keys));
   });
 }
 
@@ -141,6 +167,8 @@ clearBtn.addEventListener("click", function () {
     (single) => !single.children[1].className.includes("checked-Item")
   );
   taskArr.splice(0, taskArr.length, ...filtered);
+  keyMaker();
+  localStorage.setItem("keys", JSON.stringify(keys));
 });
 
 // FILTER Functions
