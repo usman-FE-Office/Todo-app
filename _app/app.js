@@ -46,7 +46,6 @@ function keyMaker() {
 //Get FROM LOCAL STORAGE
 window.addEventListener("DOMContentLoaded", function () {
   const keys = JSON.parse(localStorage.getItem("keys"));
-  console.log(keys);
   if (keys != null && keys.length != 0) {
     for (const key of keys) {
       createTaskElement(key);
